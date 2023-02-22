@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from typing import Optional
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -46,3 +47,17 @@ def comments(id):
     return {'data':{'1','2','3','4','5','6','7','8','9'}}
 
 
+@app.get("/comments/{id}")
+def comments(id, limit=5):
+    #fetch the comments with id = id
+    return {'data':{'1','2','3','4','5','6','7','8','9'}}
+
+class Student(BaseModel):
+    
+    name: str
+    student_id: int
+    subject: str
+
+@app.post("/student") 
+def create_student(student:Student):
+    return {'data':f"Student name is {student.name}"}
