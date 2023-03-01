@@ -7,4 +7,3 @@ class Hash():
     def bcrypt(password: str):
         
         return pwd_context.hash(password)
-    
