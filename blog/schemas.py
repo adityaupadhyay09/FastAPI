@@ -23,6 +23,7 @@ class ShowUser(BaseModel):
     
     class Config(): 
         orm_mode = True
+
         
 class ShowBlog(BaseModel):
     title:str
@@ -32,3 +33,17 @@ class ShowBlog(BaseModel):
     class Config(): 
         orm_mode = True
 
+
+class Login(BaseModel):
+    username:str
+    password:str
+    
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+ 
+
+class TokenData(BaseModel):
+    email: str | None = None
+    
